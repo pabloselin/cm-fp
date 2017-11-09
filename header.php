@@ -32,7 +32,7 @@
 				<button class="nav-menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"><i class="fa fa-bars"></i></button>
 				<span class="site-mobile-title title-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
-						<img src="<?php bloginfo('template_url');?>/dist/assets/images/logo-cms-00.svg" alt="<?php bloginfo( 'name' ); ?>" width="280" height="69">
+						<img src="<?php echo cm_get_option('logo');?>" alt="<?php bloginfo( 'name' ); ?>" width="280" height="69">
 					</a>
 				</span>
 			</div>
@@ -40,7 +40,7 @@
 		
 		<nav class="site-navigation top-bar" role="navigation">
 			<div class="site-info">
-				<p><i class="fa fa-map-marker"></i> <?php echo cms_get_option('address');?> - <a href="tel:<?php echo cms_get_option('fono');?>"><i class="fa fa-phone"></i> <?php echo cms_get_option('fono');?></a> - <a href="mailto:<?php echo cms_get_option('site_email');?>"><i class="fa fa-envelope-o"></i> <?php echo cms_get_option('site_email');?></a></p>
+				<p><i class="fa fa-map-marker"></i> <?php echo cm_get_option('address');?> - <a href="tel:<?php echo cm_get_option('fono');?>"><i class="fa fa-phone"></i> <?php echo cm_get_option('fono');?></a> - <a href="mailto:<?php echo cm_get_option('site_email');?>"><i class="fa fa-envelope-o"></i> <?php echo cm_get_option('site_email');?></a></p>
 			</div>
 
 			<div class="top-search">
@@ -49,7 +49,7 @@
 			<div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php bloginfo('template_url');?>/dist/assets/images/logo-cms-00.svg" alt="<?php bloginfo( 'name' ); ?>" width="500" height="123">
+						<img src="<?php echo cm_get_option('logo');?>" alt="<?php bloginfo( 'name' ); ?>" width="500" height="123">
 					</a>
 
 				</div>

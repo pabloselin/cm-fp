@@ -48,3 +48,9 @@ function cms_postlabels() {
 
 add_action( 'init', 'cms_postlabels' );
 add_action( 'admin_menu', 'cms_change_post_menu_label' );
+
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');

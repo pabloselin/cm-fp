@@ -60,7 +60,7 @@ add_action('foundationpress_page_before_entry_content', 'cms_printbutton');
 function cms_linktalleres() {
     global $post;
     if(is_single() && get_post_type($post->ID) == 'mtaller'):
-        $page = cms_get_option('cms_selectpagetalleres');
+        $page = cm_get_option('cms_selectpagetalleres');
         echo '<a href="' . get_permalink($page) . '" class="button">Ver todos los talleres</a>';
     endif;
 }

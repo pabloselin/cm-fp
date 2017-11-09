@@ -3,19 +3,19 @@
  * CMB2 Theme Options
  * @version 0.1.0
  */
-class cms_Admin {
+class cm_Admin {
 
 	/**
  	 * Option key, and option page slug
  	 * @var string
  	 */
-	protected $key = 'cms_options';
+	protected $key = 'cm_options';
 
 	/**
  	 * Options page metabox id
  	 * @var string
  	 */
-	protected $metabox_id = 'cms_option_metabox';
+	protected $metabox_id = 'cm_option_metabox';
 
 	/**
 	 * Options Page title
@@ -56,7 +56,7 @@ class cms_Admin {
 	 */
 	protected function __construct() {
 		// Set our title
-		$this->title = __( 'Opciones del sitio', 'cms' );
+		$this->title = __( 'Opciones del sitio', 'cm' );
 	}
 
 	/**
@@ -123,6 +123,13 @@ class cms_Admin {
 		) );
 
 		// Set our CMB2 fields
+		// 
+		$cmb->add_field( array(
+			'name' => 'Logo',
+			'desc' => 'Logotipo del colegio (en formato SVG)',
+			'id'   => 'logo',
+			'type' => 'file'
+		) );
 
 		$cmb->add_field( array(
 			'name' => 'Teléfono / Whatsapp',
@@ -181,11 +188,11 @@ class cms_Admin {
 
 		$cmb->add_field( array(
 			'name' => 'Página de Talleres',
-			'id' => 'cms_selectpagetalleres',
+			'id' => 'cm_selectpagetalleres',
 			'desc' => 'Seleccione una página para el archivo de talleres',
 			'show_option_none' => true,
 			'type' => 'select',
-			'options' => cms_makeselectpages()
+			'options' => cm_makeselectpages()
 		) );
 
 	}
@@ -229,8 +236,8 @@ class cms_Admin {
  * @since  0.1.0
  * @return cms_Admin object
  */
-function cms_admin() {
-	return cms_Admin::get_instance();
+function cm_admin() {
+	return cm_Admin::get_instance();
 }
 
 /**
@@ -240,14 +247,14 @@ function cms_admin() {
  * @param  mixed  $default Optional default value
  * @return mixed           Option value
  */
-function cms_get_option( $key = '', $default = null ) {
+function cm_get_option( $key = '', $default = null ) {
 	if ( function_exists( 'cmb2_get_option' ) ) {
 		// Use cmb2_get_option as it passes through some key filters.
-		return cmb2_get_option( cms_admin()->key, $key, $default );
+		return cmb2_get_option( cm_admin()->key, $key, $default );
 	}
 
 	// Fallback to get_option if CMB2 is not loaded yet.
-	$opts = get_option( cms_admin()->key, $key, $default );
+	$opts = get_option( cm_admin()->key, $key, $default );
 
 	$val = $default;
 
@@ -260,7 +267,7 @@ function cms_get_option( $key = '', $default = null ) {
 	return $val;
 }
 
-function cms_makeselectpages() {
+function cm_makeselectpages() {
 	$args = array(
 		'post_type' => 'page',
 		'numberposts' => -1,
@@ -274,4 +281,4 @@ function cms_makeselectpages() {
 }
 
 // Get it started
-cms_admin();
+cm_admin();
