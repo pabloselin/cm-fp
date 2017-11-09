@@ -6,7 +6,7 @@
 @import 'motion-ui';
 
 @include foundation-global-styles;
-//@include foundation-grid;
+@include foundation-grid;
 //@include foundation-flex-grid;
 
 @include foundation-xy-grid-classes;
@@ -69,6 +69,9 @@
 @import "modules/content";
 @import "modules/footer";
 @import "modules/editor-style";
+// Custom modules
+@import "modules/sidebar";
+@import "modules/talleres";
 
 // Components
 @import "components/buttons";
@@ -76,7 +79,12 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
+// Custom components
+@import "components/item-evento-front";
+@import "components/item-novedad-front";
+@import "components/metadata";
 
 // Templates
 @import "templates/front";
-@import "templates/kitchen-sink";
+// Custom templates
+@import "templates/archive"

@@ -1,201 +1,164 @@
-// Page header
-.front-hero {
-  .marketing {
-    @include xy-grid-container(55rem);
-    @include xy-grid;
-  }
 
-  @include breakpoint(small) {
-    background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
-    background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
-    height: auto;
+.home {
+    .widget {
+        @include grid-row();
+        .mini-item-wrap {
+          padding:0;
+          a {
+            display:block;
+                h1 {
+                    font-size:1.6rem;
+                    line-height:1.1em;
+                }
+            }
+        }
+    }
+}
+
+.widget-novedades-portada {
+    .mini-item-wrap.novedad-0 {
+        @include grid-column(12);
+        //margin-bottom:12px;
+        padding-left:0!important;
+        @include breakpoint(medium down) {
+            padding:0;
+        }
+    }
+    .mini-item-wrap.novedad-1,
+    .mini-item-wrap.novedad-2,
+    .mini-item-wrap.novedad-3,
+    .mini-item-wrap.novedad-4,
+    .mini-item-wrap.novedad-5,
+    .mini-item-wrap.novedad-6
+    {
+        @include breakpoint(large) {
+            @include grid-column(6);
+            padding-left:0!important;
+        }
+        @include breakpoint(medium down) {
+            margin-bottom:12px;
+            position:relative;
+            clear:both;
+            .item-novedad-front {
+                height:170px;
+                overflow:hidden;
+            }
+            .item-text-wrap {
+                position: absolute;
+                bottom:0;
+                padding:12px;
+                width:100%;
+                background-color:rgba(0, 0, 0, 0.4);
+                h1 {
+                    color:white;
+                }
+            }
+        }
+        
+    }
+}
+
+.mini-item-wrap.novedad-3,
+.mini-item-wrap.novedad-5 {
+    clear:both;
+}
+
+.home .widget h3 {
+    text-transform:uppercase;
+    font-size:18px;
+    color:#F09C29;
+    margin:0 0 6px 0;
+    @include breakpoint(medium) {
+        margin:24px 0 0 0;
+    }
+    
+}
+
+.home {
+    .widget_evtcontent,
+    .widget_newscontent,
+    .widget_tallerescontent
+    {
+        clear:both;
+        > h3 {
+            text-transform:uppercase;
+            font-size:18px;
+            color:#F09C29;
+            @include breakpoint(medium) {
+                margin:24px 0 0 0;
+            }
+        }
+    }
+}
+
+.front-banners {
+    @include breakpoint(medium) {
+        margin-top:30px;
+    }
+}
+
+a.bannerlink {
+        display:block;
+        //background-color:rgba(226,149,64,0.3);
+        margin:0 0 12px;
+    }
+
+.banner-widget {
+    
     position: relative;
-    text-align: left;
-  }
+    //margin:6px 16px 6px 0;
+    display:block;
 
-  @include breakpoint(medium) {
-    background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(685);
-    margin: 0 0 rem-calc(72);
-  }
-
-  .watch {
-    @include breakpoint(small) {
-      @include xy-cell(7);
+    .wp-caption-text {
+        // position: absolute;
+        // bottom:0;
+        // padding:12px;
+        // color:white;
+        // font-size:16px;
+        // text-shadow:0 1px 3px #444;
+        display:none;
     }
-
-    @include breakpoint(medium) {
-      @include xy-cell(12);
-    }
-
-    a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
-      margin-right: rem-calc(20);
-    }
-
-    a:hover {
-      color: #fff;
-    }
-
-    #stargazers {
-      :before {
-        content: "\f09b";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
-
-    #twitter {
-      :before {
-        content: "\f099";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
-
-  }
-
-  .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
-    }
-  }
-
-  h1 {
-    color: #fff;
-    font-weight: 500;
-
-    @include breakpoint(small) {
-      font-size: 2.2rem;
-    }
-
-    @include breakpoint(medium) {
-      font-size: 2.875rem;
-    }
-  }
-
-  h4 {
-    color: #fefefe;
-    font-weight: 300;
-    font-size: 1.3125rem;
-  }
-
-  .download {
-    margin-top: rem-calc(20);
-  }
-}
-
-// Intro
-.intro {
-  @include xy-grid-container;
-  @include xy-grid;
-
-  .fp-intro {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(10);
-      @include xy-cell-offset(1);
-
-      h2 {
-        font-weight: 300;
-        margin-bottom: 1.5rem;
-      }
-
-      h4 {
-        font-size: 1.125rem;
-        line-height: 1.6;
-        color: #777;
-        margin-bottom: 2rem;
-      }
-    }
-  }
-}
-
-// Section divider
-.section-divider {
-  @include xy-grid-container;
-  @include xy-grid;
-
-  hr {
-    @include xy-cell(12);
-    @extend .dotted;
-    box-sizing: border-box;
-  }
-}
-
-// Benefits
-.benefits {
-  @include xy-grid-container;
-  @include xy-grid;
-  text-align: center;
-
-  header {
-    @include xy-cell(12);
-
-    h2 {
-      font-weight: 300;
-    }
-
-    h4 {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      color: #777;
-    }
-  }
-
-  .semantic,
-  .responsive,
-  .customizable,
-  .professional {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(3);
+    
+    h3 {
+        position: absolute;
+        bottom:0;
+        color:white;
+        padding:3px 12px;
+        text-shadow:0 1px 4px #2c1b08;
+        font-size:36px;
+        z-index:10;
+        width:100%;
+        background-color:rgba(226,149,64, 0.7);
+        margin-bottom:0;
+        text-align:center;
     }
 
     img {
-      padding: 1.25rem;
-      margin: 1rem auto 0 auto;
+        width:100%;
+        height:auto;
+    }
+}
+
+.front-widgets .widget_media_image {
+    
+    img {
+        width:100%;
+        height:auto;
     }
 
     h3 {
-      color: #0a0a0a;
-      font-weight: 300;
-      font-size: 1.75rem;
+        //display:none;
     }
 
-    p {
-      font-size: 0.9375rem;
-    }
-  }
+    margin:0 0 12px 0;
+}
 
-  .why-foundation {
-    @include xy-cell(12);
-    margin-top: 4rem;
-  }
+.widget_newscontent {
+        margin-top:12px;
+    @include breakpoint(medium) {
+        margin-top:30px;
+    }
+    h3.widget-title {
+        display:none;
+    }
 }

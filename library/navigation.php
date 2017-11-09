@@ -50,6 +50,45 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 	}
 }
 
+/**
+ * Desktop navigation - Bottom
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'foundationpress_bottom_bar' ) ) {
+	function foundationpress_bottom_bar() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
+			'theme_location' => 'bottom-bar',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+			'walker'         => new Foundationpress_Top_Bar_Walker(),
+		));
+	}
+}
+
+/**
+ * Desktop navigation - Fast Links
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'foundationpress_fast_links' ) ) {
+	function foundationpress_fast_links() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+			'theme_location' => 'fast-links',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+			//'walker'         => new Foundationpress_Top_Bar_Walker(),
+		));
+	}
+}
+
+
 
 /**
  * Add support for buttons in the top-bar menu:
